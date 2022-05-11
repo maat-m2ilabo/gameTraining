@@ -1,5 +1,7 @@
 package org.example;
 
+import com.sun.source.tree.WhileLoopTree;
+
 import java.math.*;
 
 class GenerateRandom {
@@ -9,7 +11,7 @@ class GenerateRandom {
     }
 }
 
-
+/*Classe du guerrier, faudrait le mettre dans un fichier à part une fois qu'on aura vu ça ^^ */
 class Warrior{
     private String name;
     private int hp;
@@ -33,11 +35,11 @@ class Warrior{
     public void takeHit(int receivedDamage){
         int newHealth = this.hp - receivedDamage;
         setHp(newHealth);
-        if (this.hp > 0) {
+        if (this.hp <= 0) {
             System.out.println("You're DEAD mate. Sorry");
         }
         else {
-            System.out.println("You now have " + this.hp + " left");
+            System.out.println("You now have " + this.hp + " HP left");
         }
     }
 
@@ -45,10 +47,43 @@ class Warrior{
         int damage = GenerateRandom.random(0, 20);
         return damage;
     }
+
+    public Warrior(String name, int hp) {
+        this.name = name;
+        this.hp = hp;
+    }
 }
+
+class Monster extends Warrior{
+    public void takeHit(int receivedDamage){
+        int newHealth = this.getHp() - receivedDamage;
+        setHp(newHealth);
+        if (getHp() <= 0) {
+            System.out.println("The beast was slain. Congratulations, mighty hero!");
+            System.exit(0);
+        }
+        else {
+            System.out.println("The creature now has " + getHp() + " HP left. Keep fighting!");
+        }
+    }
+
+    public Monster(String name, int hp) {
+        super(name, hp);
+    }
+}
+
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Warrior player = new Warrior("Ilgard", 200);
+        Monster enemy = new Monster("Ulgrirh", 200);
+
+        do {
+            enemy.takeHit(player.attack());
+            player.takeHit(enemy.attack());
+
+        }
+        while (player.getHp() > 0 && enemy.getHp() > 0);
     }
+
 }

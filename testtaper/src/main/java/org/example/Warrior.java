@@ -55,7 +55,7 @@ class Monster extends Warrior{
     }
 
     public Monster(String name, int hp) {
-        super(name, hp);
+        super(name, hp) ;
     }
 }
 

@@ -60,7 +60,6 @@ class Monster extends Warrior{
         setHp(newHealth);
         if (getHp() <= 0) {
             System.out.println("The beast was slain. Congratulations, mighty hero!");
-            System.exit(0);
         }
         else {
             System.out.println("The creature now has " + getHp() + " HP left. Keep fighting!");
@@ -80,7 +79,9 @@ public class Main {
 
         do {
             enemy.takeHit(player.attack());
-            player.takeHit(enemy.attack());
+            if (enemy.getHp() > 0) {
+                player.takeHit(enemy.attack());
+            }
 
         }
         while (player.getHp() > 0 && enemy.getHp() > 0);

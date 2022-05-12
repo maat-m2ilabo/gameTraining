@@ -6,9 +6,32 @@ import java.util.Scanner;
 
 public class battle {
 
-    public static void printFightersStatus(Hero player, ArrayList<Monster> enemies){
+    public static void targetedAttack(Hero player, ArrayList<Monster> enemies) {
+        Scanner scan = new Scanner(System.in);
+        // String enemiesName = "";  class arraylist ennemies à faire
+        System.out.println("Who shall you strike?");//+ enemiesName);
+
+        for (Monster enemy : enemies) {
+            System.out.print(enemies.indexOf(enemy) + "-");
+            System.out.print(enemy.getName() + "  |  ");
+
+        }
+
+        Integer target = scan.nextInt();
+
+        for (Monster enemy : enemies) {
+
+            if (enemies.indexOf(enemy) == target) {
+                enemy.takeHit(player.attack());
+            }
+            ;
+        }
+        enemies.removeIf(element -> (element.getHp() <= 0));
+    }
+
+    public static void printFightersStatus(Hero player, ArrayList<Monster> enemies) {
         System.out.println(player.getName() + " -- " + player.getHp());
-        for (Monster enemy : enemies){
+        for (Monster enemy : enemies) {
             System.out.print(enemy.getName() + " -- " + enemy.getHp() + " | ");
         }
         System.out.println();
@@ -38,14 +61,7 @@ public class battle {
 
                     switch (choice) {
                         case 1:
-                            System.out.println("Who shall you strike?" + enemiesName);
-                            String target = scan.next();
-                            for (Monster enemy : enemies) {
-                                if (enemy.getName().equals(target)) {
-                                    enemy.takeHit(player.attack());
-                                }
-                            }
-                            enemies.removeIf(element -> (element.getHp() <= 0));
+                            targetedAttack(player, enemies);
 
                             i++;
                             break;

@@ -50,7 +50,7 @@ class Monster extends Warrior{
             System.out.println("The beast was slain. Congratulations, mighty hero!");
         }
         else {
-            System.out.println("The creature received a devastating blow, and loses " + receivedDamage + " HP. Keep fighting!");
+            System.out.println("The creature received a devastating blow, and lost " + receivedDamage + " HP. Keep fighting!");
         }
     }
 

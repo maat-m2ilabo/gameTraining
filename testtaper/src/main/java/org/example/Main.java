@@ -17,7 +17,7 @@ public class Main {
         Hero player = new Hero("Ilgard", 400);
         //refactoriser la suite ^^
         ArrayList<Monster> enemys = new ArrayList();
-        Monster Ulgrirh = new Monster("Ulgrirh", 100);
+        Monster Ulgrirh = new Monster("Ulgrirh", 10);
         Monster Ulgrarh = new Monster("Ulgragh", 100);
         Monster Ulgrerh = new Monster("Ulgrerh", 100);
         enemys.add(Ulgrirh);

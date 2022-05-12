@@ -44,6 +44,7 @@ public class battle {
                                     enemy.takeHit(player.attack());
                                 }
                             }
+                            enemies.removeIf(element -> (element.getHp() <= 0));
 
                             i++;
                             break;

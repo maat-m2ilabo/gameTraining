@@ -18,9 +18,10 @@ public class battle {
 
         String enemiesName = "";
         for (Monster enemy : enemies) {
-            enemiesName = enemiesName + " " + enemy.getName() + ",";
+            enemiesName = enemiesName + " " + enemy.getName() + "?";
         }
 //        System.out.println("The great" + enemiesName + " appear before you, screeching, howling");
+        System.out.println("The great hero " + player.getName() + " has encountered monsters!");
 
         Integer enemiesCurrentHealth;
         do {

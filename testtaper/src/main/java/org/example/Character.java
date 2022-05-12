@@ -1,8 +1,14 @@
 package org.example;
 
-class Warrior{
+
+public abstract class Character {
     private String name;
     private int hp;
+
+    public Character(String name, int hp) {
+        this.name = name;
+        this.hp = hp;
+    }
 
     public String getName() {
         return name;
@@ -20,29 +26,18 @@ class Warrior{
         this.hp = hp;
     }
 
-    public void takeHit(int receivedDamage){
-        int newHealth = this.hp - receivedDamage;
-        setHp(newHealth);
-        if (this.hp <= 0) {
-            System.out.println("You're DEAD mate. Sorry");
-        }
-        else {
-            System.out.println("You received " + receivedDamage + " damage points");
-        }
-    }
-
     public int attack(){
         int damage = GenerateRandom.random(0, 20);
         return damage;
     }
 
-    public Warrior(String name, int hp) {
-        this.name = name;
-        this.hp = hp;
-    }
+
 }
 
-class Monster extends Warrior{
+class Monster extends Character {
+    public Monster(String name, int hp) {
+        super(name, hp);
+    }
     public void takeHit(int receivedDamage){
         int newHealth = this.getHp() - receivedDamage;
         setHp(newHealth);
@@ -54,12 +49,14 @@ class Monster extends Warrior{
         }
     }
 
-    public Monster(String name, int hp) {
-        super(name, hp) ;
-    }
+
 }
 
-class Hero extends Warrior{
+class Hero extends Character {
+
+    public Hero(String name, int hp) {
+        super(name, hp);
+    }
     public void flee(){
         System.out.println("You coward, there's no honor in flight");
         int fleeAttempt = GenerateRandom.random(0,1);
@@ -72,7 +69,15 @@ class Hero extends Warrior{
         }
     }
 
-    public Hero(String name, int hp) {
-        super(name, hp);
+    public void takeHit(int receivedDamage){
+        int newHealth = getHp() - receivedDamage;
+        setHp(newHealth);
+        if (getHp() <= 0) {
+            System.out.println("You're DEAD mate. Sorry");
+        }
+        else {
+            System.out.println("You received " + receivedDamage + " damage points");
+        }
     }
+
 }

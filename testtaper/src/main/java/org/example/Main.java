@@ -1,9 +1,7 @@
 package org.example;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
-import java.math.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.example.battle.fight;
 
@@ -17,7 +15,14 @@ class GenerateRandom {
 public class Main {
     public static void main(String[] args) {
         Hero player = new Hero("Ilgard", 200);
-        Monster enemy = new Monster("Ulgrirh", 200);
-    fight(player, enemy);
+        //refactoriser la suite ^^
+        ArrayList<Monster> enemys = new ArrayList();
+        Monster Ulgrirh = new Monster("Ulgrirh", 100);
+        Monster Ulgrarh = new Monster("Ulgragh", 100);
+        Monster Ulgrerh = new Monster("Ulgrerh", 100);
+        enemys.add(Ulgrirh);
+        enemys.add(Ulgrarh);
+        enemys.add(Ulgrerh);
+    fight(player, enemys);
     }
 }

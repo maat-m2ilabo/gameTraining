@@ -16,8 +16,16 @@ public class battle {
             System.out.print(enemy.getName() + "  |  ");
 
         }
-
-        Integer target = scan.nextInt();
+        Integer target = null;
+        while (target == null ) {
+            Integer targetChoice = scan.nextInt();
+            if (targetChoice < enemies.size()) {
+                target = targetChoice;
+            }
+            else {
+                System.out.println("There's no monster there. Pull yourself together! Hit Them!");
+            }
+        }
 
         for (Monster enemy : enemies) {
 

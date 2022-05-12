@@ -27,7 +27,7 @@ class Warrior{
             System.out.println("You're DEAD mate. Sorry");
         }
         else {
-            System.out.println("You now have " + this.hp + " HP left");
+            System.out.println("You received " + receivedDamage + " damage points");
         }
     }
 
@@ -50,7 +50,7 @@ class Monster extends Warrior{
             System.out.println("The beast was slain. Congratulations, mighty hero!");
         }
         else {
-            System.out.println("The creature now has " + getHp() + " HP left. Keep fighting!");
+            System.out.println("The creature received a devastating blow, and loses " + receivedDamage + " HP. Keep fighting!");
         }
     }
 

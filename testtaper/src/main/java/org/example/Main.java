@@ -3,7 +3,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.example.battle.fight;
+import static org.example.battle.battle;
 
 class GenerateRandom {
     public static int random(int min, int max) {
@@ -14,7 +14,7 @@ class GenerateRandom {
 
 public class Main {
     public static void main(String[] args) {
-        Hero player = new Hero("Ilgard", 200);
+        Hero player = new Hero("Ilgard", 400);
         //refactoriser la suite ^^
         ArrayList<Monster> enemys = new ArrayList();
         Monster Ulgrirh = new Monster("Ulgrirh", 100);
@@ -23,6 +23,6 @@ public class Main {
         enemys.add(Ulgrirh);
         enemys.add(Ulgrarh);
         enemys.add(Ulgrerh);
-    fight(player, enemys);
+    battle(player, enemys);
     }
 }

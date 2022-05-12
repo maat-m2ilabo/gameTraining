@@ -6,15 +6,25 @@ import java.util.Scanner;
 
 public class battle {
 
-    public static void fight(Hero player, ArrayList<Monster> enemys) {
+    public static void printFightersStatus(Hero player, ArrayList<Monster> enemies){
+        System.out.println(player.getName() + " -- " + player.getHp());
+        for (Monster enemy : enemies){
+            System.out.print(enemy.getName() + " -- " + enemy.getHp() + " | ");
+        }
+        System.out.println();
+    }
+
+    public static void battle(Hero player, ArrayList<Monster> enemies) {
+
         String enemiesName = "";
-        for (Monster enemy : enemys) {
+        for (Monster enemy : enemies) {
             enemiesName = enemiesName + " " + enemy.getName() + ",";
         }
-        System.out.println("The great" + enemiesName + " appear before you, screeching, howling");
+//        System.out.println("The great" + enemiesName + " appear before you, screeching, howling");
 
         Integer enemiesCurrentHealth;
         do {
+            printFightersStatus(player, enemies);
             enemiesCurrentHealth = 0;
             //pas propre ça
             for (int i = 0; i == 0; ) {
@@ -29,7 +39,7 @@ public class battle {
                         case 1:
                             System.out.println("Who shall you strike?" + enemiesName);
                             String target = scan.next();
-                            for (Monster enemy : enemys) {
+                            for (Monster enemy : enemies) {
                                 if (enemy.getName().equals(target)) {
                                     enemy.takeHit(player.attack());
                                 }
@@ -52,7 +62,7 @@ public class battle {
                 }
 
             }
-            for (Monster enemy : enemys) {
+            for (Monster enemy : enemies) {
                 if (enemy.getHp() > 0) {
                     player.takeHit(enemy.attack());
                 }

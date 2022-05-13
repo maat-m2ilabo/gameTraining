@@ -7,8 +7,7 @@ public abstract class Character {
     private String name;
     private int hp;
 
-    public Character(String name, int hp) {
-        this.name = name;
+    public Character(int hp) {
         this.hp = hp;
     }
 
@@ -38,7 +37,7 @@ public abstract class Character {
 
 class Monster extends Character {
     public Monster(int hp) {
-        super(name, hp);
+        super(hp);
         this.setHp(hp);
         this.setName();
     }
@@ -72,7 +71,8 @@ class Monster extends Character {
 class Hero extends Character {
 
     public Hero(String name, int hp) {
-        super(name, hp);
+        super(hp);
+        setName(name);
     }
     public void flee(){
         System.out.println("You coward, there's no honor in flight");

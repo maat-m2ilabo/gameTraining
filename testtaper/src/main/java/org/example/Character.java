@@ -1,6 +1,8 @@
 package org.example;
 
 
+import java.util.ArrayList;
+
 public abstract class Character {
     private String name;
     private int hp;
@@ -37,19 +39,20 @@ public abstract class Character {
 class Monster extends Character {
     public Monster(int hp) {
         super(name, hp);
-        setName();
+        this.setHp(hp);
+        this.setName();
     }
 
-    private final List<String> randomNameList = new ArrayList<String>() {{
+    private final ArrayList<String> randomNameList = new ArrayList<String>() {{
         add("Ulgrirh");
         add("Ulgragh");
         add("Ulgrerh");
     }};
 
-    @java.lang.Override
+    // @java.lang.Override
     public void setName() {
-        Random random = new Random();
-        this.name = randomNameList.get(random.nextInt(0-(randomNameList.size -1));
+        int random = GenerateRandom.random(0,2);
+        setName(randomNameList.get(random));
     }
 
     public void takeHit(int receivedDamage){

@@ -6,12 +6,18 @@ public abstract class Ennemies {
     public static ArrayList<Monster> Create(int ennemiesNumber) {
 
         ArrayList<Monster> ennemies = new ArrayList();
-        Monster Ulgrirh = new Monster("Ulgrirh", 100);
-        Monster Ulgrarh = new Monster("Ulgragh", 100);
-        Monster Ulgrerh = new Monster("Ulgrerh", 100);
-        ennemies.add(Ulgrirh);
-        ennemies.add(Ulgrarh);
-        ennemies.add(Ulgrerh);
+        for (int i = 0; i < ennemiesNumber; i++) {
+            ennemies.add(new Monster (randomName.get(i), 100));
+        }
+
         return ennemies;
     }
+
+    private static final List<String> randomName = new ArrayList<String>() {{
+        add("Ulgrirh");
+        add("Ulgragh");
+        add("Ulgrerh");
+    }};
+
+
 }

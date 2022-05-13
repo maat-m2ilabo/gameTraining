@@ -35,9 +35,23 @@ public abstract class Character {
 }
 
 class Monster extends Character {
-    public Monster(String name, int hp) {
+    public Monster(int hp) {
         super(name, hp);
+        setName();
     }
+
+    private final List<String> randomName = new ArrayList<String>() {{
+        add("Ulgrirh");
+        add("Ulgragh");
+        add("Ulgrerh");
+    }};
+
+    @java.lang.Override
+    public void setName() {
+        Random random = new Random();
+        this.name = randomName.get(random.nextInt(0-(randomName.size -1));
+    }
+
     public void takeHit(int receivedDamage){
         int newHealth = this.getHp() - receivedDamage;
         setHp(newHealth);

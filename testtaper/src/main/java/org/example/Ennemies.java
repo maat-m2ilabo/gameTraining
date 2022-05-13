@@ -13,11 +13,7 @@ public abstract class Ennemies {
         return ennemies;
     }
 
-    private static final List<String> randomName = new ArrayList<String>() {{
-        add("Ulgrirh");
-        add("Ulgragh");
-        add("Ulgrerh");
-    }};
+
 
 
 }

@@ -1,14 +1,10 @@
 package org.example;
-
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Character {
     private String name;
     private int hp;
-
-    public Character(String name, int hp) {
-        this.name = name;
-        this.hp = hp;
-    }
 
     public String getName() {
         return name;
@@ -35,22 +31,22 @@ public abstract class Character {
 }
 
 class Monster extends Character {
-    public Monster(int hp) {
-        super(name, hp);
-        setName();
+    public Monster(String name, int hp) {
+        this.setHp(hp);
+        this.setName(name);
     }
 
-    private final List<String> randomNameList = new ArrayList<String>() {{
+    private static final List<String> randomNameList = new ArrayList<String>() {{
         add("Ulgrirh");
         add("Ulgragh");
         add("Ulgrerh");
     }};
 
-    @java.lang.Override
-    public void setName() {
-        Random random = new Random();
-        this.name = randomNameList.get(random.nextInt(0-(randomNameList.size -1));
-    }
+    //@java.lang.Override
+//    public void setName(String name) {
+//        int random = GenerateRandom.random(0,randomNameList.size());
+//        this.setName(randomNameList.get(random));
+//    }
 
     public void takeHit(int receivedDamage){
         int newHealth = this.getHp() - receivedDamage;
@@ -63,13 +59,16 @@ class Monster extends Character {
         }
     }
 
-
+    public static List<String> getRandomNameList() {
+        return randomNameList;
+    }
 }
 
 class Hero extends Character {
 
     public Hero(String name, int hp) {
-        super(name, hp);
+        setName(name);
+        setHp(hp);
     }
     public void flee(){
         System.out.println("You coward, there's no honor in flight");

@@ -7,7 +7,7 @@ public abstract class Ennemies {
 
         ArrayList<Monster> ennemies = new ArrayList();
         for (int i = 0; i < ennemiesNumber; i++) {
-            ennemies.add(new Monster (randomName.get(i), 100));
+            ennemies.add(new Monster (100));
         }
 
         return ennemies;

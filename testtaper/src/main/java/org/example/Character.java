@@ -42,16 +42,12 @@ class Monster extends Character {
         this.setName();
     }
 
-    private final ArrayList<String> randomNameList = new ArrayList<String>() {{
-        add("Ulgrirh");
-        add("Ulgragh");
-        add("Ulgrerh");
-    }};
+
 
     // @java.lang.Override
     public void setName() {
         int random = GenerateRandom.random(0,2);
-        setName(randomNameList.get(random));
+        setName(Constants.randomNameList.get(random));
     }
 
     public void takeHit(int receivedDamage){

@@ -7,11 +7,11 @@ public class Main {
         Map map = new Map(10);
         Player mat = new Player("mat", "M", 0, 0);
 
-        for (boolean i = true; i = false;) {
+        for (int z = 0; z < 9; z++) {
+
             map.display(mat);
             map.printmap();
             mat.move(map);
-            scanner.nextLine();
         }
     }
 }

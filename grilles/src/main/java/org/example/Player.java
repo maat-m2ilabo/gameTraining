@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Player {
     private String name;
     private String token;
@@ -22,8 +24,25 @@ public class Player {
     }
 
     public void move(Map map){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Which way?");
+        System.out.println("z - top  |  s - bottom  |  q - left  |  d - right");
+        String choice = scan.nextLine();
         map.setGrid(posX, posY, "X");
-        posX +=1;
+        switch (choice) {
+            case "z":
+                posX -= 1;
+                break;
+            case "s":
+                posX += 1;
+                break;
+            case "q":
+                posY -= 1;
+                break;
+            case "d":
+                posY += 1;
+                break;
+        }
         map.setGrid(posX, posY, token);
     }
 

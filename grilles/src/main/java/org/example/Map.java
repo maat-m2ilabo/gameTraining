@@ -20,6 +20,12 @@ public class Map {
         grid[x][y] = token;
     }
 
+    public void printmap(){
+        for (int i = 0 ; i < size ; i++){
+            System.out.println(Arrays.deepToString(grid[i]));
+        }
+    }
+
     public void display(Player player){
         for (int i = 0 ; i < this.size ; i++) {
             for (int y = 0; y < this.size; y++) {
@@ -27,12 +33,9 @@ public class Map {
             }
         }
         this.grid[player.getPosX()][player.getPosY()] = player.getToken();
+        printmap();
     }
-    public void printmap(){
-            for (int i = 0 ; i < size ; i++){
-                System.out.println(Arrays.deepToString(grid[i]));
-            }
-    }
+
 
 
 

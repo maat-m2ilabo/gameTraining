@@ -40,7 +40,7 @@ class Monster extends Character {
         setName();
     }
 
-    private final List<String> randomName = new ArrayList<String>() {{
+    private final List<String> randomNameList = new ArrayList<String>() {{
         add("Ulgrirh");
         add("Ulgragh");
         add("Ulgrerh");
@@ -49,7 +49,7 @@ class Monster extends Character {
     @java.lang.Override
     public void setName() {
         Random random = new Random();
-        this.name = randomName.get(random.nextInt(0-(randomName.size -1));
+        this.name = randomNameList.get(random.nextInt(0-(randomNameList.size -1));
     }
 
     public void takeHit(int receivedDamage){

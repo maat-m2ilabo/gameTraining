@@ -8,7 +8,8 @@ public abstract class Ennemies {
         ArrayList<Integer> takenNames = new ArrayList<>();
         ArrayList<Monster> ennemies = new ArrayList();
         for (int i = 0; i < ennemiesNumber; i++) {
-            for (boolean y = false; y == false;) {
+            boolean y = false;
+            while(y == false) {
                 int random = GenerateRandom.random(0, (Monster.getRandomNameList().size()-1));
                 if (!takenNames.contains(random)) {
                     String name = Monster.getRandomNameList().get(random);

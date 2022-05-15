@@ -46,15 +46,19 @@ public class Battle {
 //        System.out.println("The great" + enemiesName + " appear before you, screeching, howling");
         System.out.println("The great hero " + player.getName() + " has encountered monsters!");
 
+        Map map = new Map(10);
+        map.display(player, ennemies);
         Integer ennemiesCurrentHealth;
         do {
             printFightersStatus(player, ennemies);
+
             ennemiesCurrentHealth = 0;
             //pas propre ça
-            for (boolean i = false; i == false; ) {
+            boolean i = false;
+            while ( i == false ) {
                 Scanner scan = new Scanner(System.in);
                 System.out.println("What will you do?");
-                System.out.print("1 - fight   | 2 - flee  : ");
+                System.out.print("1 - fight   | 2 - flee | 3 - move  : ");
                 try {
 
                     String choice = scan.next();
@@ -68,6 +72,12 @@ public class Battle {
                         case "2":
                             player.flee();
                             i = true;
+                            break;
+
+                        case "3":
+                            player.move(map);
+                            i = true;
+                            map.display(player, ennemies);
                             break;
 
                         default:

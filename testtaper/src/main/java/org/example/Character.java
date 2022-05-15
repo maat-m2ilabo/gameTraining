@@ -1,13 +1,40 @@
 package org.example;
 
 
+import java.util.Scanner;
+
 public abstract class Character {
     private String name;
     private int hp;
 
-    public Character(String name, int hp) {
-        this.name = name;
-        this.hp = hp;
+    private int posX;
+    private int posY;
+
+    private String token;
+
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public int getPosX() {
+        return posX;
+    }
+
+    public void setPosX(int posX) {
+        this.posX = posX;
+    }
+
+    public int getPosY() {
+        return posY;
+    }
+
+    public void setPosY(int posY) {
+        this.posY = posY;
     }
 
     public String getName() {
@@ -31,13 +58,41 @@ public abstract class Character {
         return damage;
     }
 
+    public void move(Map map){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Which way?");
+        System.out.println("z - top  |  s - bottom  |  q - left  |  d - right");
+        String choice = scan.nextLine();
+        map.setGrid(posX, posY, "X");
+        switch (choice) {
+            case "z":
+                posX -= 1;
+                break;
+            case "s":
+                posX += 1;
+                break;
+            case "q":
+                posY -= 1;
+                break;
+            case "d":
+                posY += 1;
+                break;
+        }
+        map.setGrid(posX, posY, token);
+    }
+
 
 }
 
 class Monster extends Character {
-    public Monster(String name, int hp) {
-        super(name, hp);
+    public Monster(String name, int hp,int x, int y) {
+        this.setName(name);
+        this.setHp(hp);
+        setPosX(x);
+        setPosY(y);
+        setToken(String.valueOf(name.charAt(0)));
     }
+
     public void takeHit(int receivedDamage){
         int newHealth = this.getHp() - receivedDamage;
         setHp(newHealth);
@@ -54,8 +109,12 @@ class Monster extends Character {
 
 class Hero extends Character {
 
-    public Hero(String name, int hp) {
-        super(name, hp);
+    public Hero(String name, int hp, int x, int y) {
+        this.setName(name);
+        this.setHp(hp);
+        setPosX(x);
+        setPosY(y);
+        setToken(String.valueOf(name.charAt(0)));
     }
     public void flee(){
         System.out.println("You coward, there's no honor in flight");

@@ -15,7 +15,7 @@ public class Main {
         //no limit à la longueur du nom. It's not a bug, it's a feature!
         //Si ça devait ne plus être amusant (we are not amused), penser à limiter avec un if userName.length...
         String userName = scanner.nextLine();
-        Hero player = new Hero(userName, 600);
+        Hero player = new Hero(userName, 600,0,0);
         ArrayList<Monster> ennemies = Ennemies.Create(3);
         battle(player, ennemies);
 

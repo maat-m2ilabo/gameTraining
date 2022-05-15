@@ -2,13 +2,13 @@ package org.example;
 
 import java.util.Scanner;
 
-public class Player {
+public class Character {
     private String name;
     private String token;
     private int posX;
     private int posY;
 
-    public Player(String name, String token, int posX, int posY) {
+    public Character(String name, String token, int posX, int posY) {
         this.name = name;
         this.token = token;
         this.posX = posX;

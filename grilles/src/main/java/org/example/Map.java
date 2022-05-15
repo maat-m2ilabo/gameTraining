@@ -26,13 +26,13 @@ public class Map {
         }
     }
 
-    public void display(Player player){
+    public void display(Character character){
         for (int i = 0 ; i < this.size ; i++) {
             for (int y = 0; y < this.size; y++) {
                 this.grid[i][y] = "X";
             }
         }
-        this.grid[player.getPosX()][player.getPosY()] = player.getToken();
+        this.grid[character.getPosX()][character.getPosY()] = character.getToken();
         printmap();
     }
 

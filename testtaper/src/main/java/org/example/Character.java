@@ -1,12 +1,13 @@
 package org.example;
 
 
+import java.util.ArrayList;
+
 public abstract class Character {
     private String name;
     private int hp;
 
-    public Character(String name, int hp) {
-        this.name = name;
+    public Character(int hp) {
         this.hp = hp;
     }
 
@@ -35,9 +36,20 @@ public abstract class Character {
 }
 
 class Monster extends Character {
-    public Monster(String name, int hp) {
-        super(name, hp);
+    public Monster(int hp) {
+        super(hp);
+        this.setHp(hp);
+        this.setName();
     }
+
+
+
+    // @java.lang.Override
+    public void setName() {
+        int random = GenerateRandom.random(0,2);
+        setName(Constants.randomNameList.get(random));
+    }
+
     public void takeHit(int receivedDamage){
         int newHealth = this.getHp() - receivedDamage;
         setHp(newHealth);
@@ -55,7 +67,8 @@ class Monster extends Character {
 class Hero extends Character {
 
     public Hero(String name, int hp) {
-        super(name, hp);
+        super(hp);
+        setName(name);
     }
     public void flee(){
         System.out.println("You coward, there's no honor in flight");

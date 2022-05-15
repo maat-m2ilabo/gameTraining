@@ -17,6 +17,10 @@ public class Main {
         String userName = scanner.nextLine();
         Hero player = new Hero(userName, 600);
         ArrayList<Monster> ennemies = Ennemies.Create(3);
+        for (int i = 0; i < ennemies.size(); i++) {
+            System.out.println("Attention," + ennemies.get(i).getName() + " is present");
+        }
+
         battle(player, ennemies);
 
     }

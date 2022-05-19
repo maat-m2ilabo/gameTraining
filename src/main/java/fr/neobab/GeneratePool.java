@@ -9,7 +9,7 @@ public class GeneratePool {
         ArrayList<Fighter> fighters = new ArrayList<>();
 
         fighters.add(new Fighter(1,"Daemon","Il faisait moins chaud en enfer...", 400,40,40));
-        fighters.add(new Fighter(2,"Electra","Le bruit de l'orage m'appaise", 350,45,40));
+        fighters.add(new Fighter(2,"Electra","Le bruit de l'orage m'apaise", 350,45,40));
         fighters.add(new Fighter(3,"Starlight","Brillant même de nuit", 350,35,50));
         fighters.add(new Fighter(4,"Aealaenor","Le grand problème avec l'espace, c'est que c'est grand et vide.", 300,35,55));
         fighters.add(new Fighter(5,"Devilstrand","Fait de la meilleure fibre", 500,35,35));

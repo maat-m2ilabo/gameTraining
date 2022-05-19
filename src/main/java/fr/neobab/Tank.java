@@ -37,7 +37,6 @@ public class Tank extends AbstractCharacter{
 
     @Override
     public String getName() {
-
         return name;
     }
 
@@ -69,7 +68,6 @@ public class Tank extends AbstractCharacter{
     @Override
     public String toString() {
         return "\n Tank{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", punchline='" + punchline + '\'' +
                 ", hitPoints=" + hitPoints +

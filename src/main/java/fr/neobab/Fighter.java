@@ -37,7 +37,6 @@ public class Fighter extends AbstractCharacter {
 
     @Override
     public String getName() {
-
         return name;
     }
 
@@ -70,8 +69,7 @@ public class Fighter extends AbstractCharacter {
     @Override
     public String toString() {
         return "\n Fighter{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", punchline='" + punchline + '\'' +
                 ", hitPoints=" + hitPoints +
                 ", attackDmg=" + attackDmg +

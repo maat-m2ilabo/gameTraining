@@ -11,7 +11,7 @@ public class PickSquad {
 
         System.out.println("Choisissez 5 combatants \n");
         for (int i = 0; i < fighters.size(); i++) {
-            System.out.println("Fighter N°" + (i+1) + " : " + fighters.get(i).getName());
+            System.out.println("\n Fighter N°" + (i+1) + " : " + fighters.get(i).getName() + "\n" + fighters.get(i).getPunchline());
             System.out.print(" \n Voulez-vous choisir ce combatant ? (1 pour oui, 2 pour non) : ");
             chooseFighter = scanner.nextInt();
             if (chooseFighter == 1) {
@@ -25,12 +25,13 @@ public class PickSquad {
                 if (squad.size() == 5) {
                     break;
                 } continue;
-            } continue;
+            }
         }
         System.out.println("Félicitation, vous avez terminé votre séléction !");
+        System.out.println("\n Vous avez choisi : ");
         for (int i=0; i<squad.size();i++) {
             String squadToFormat = fighters.get(i).toString();
-            System.out.println("Vous avez choisi : " + squadToFormat);
+            System.out.println(squadToFormat);
         }
         return squad;
     }
